@@ -1,0 +1,22 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-around;
+  padding: 50px 0px;
+  background-color: grey;
+  color: white;
+}
+
+a {
+  color: antiquewhite;
+}
+
+a:hover {
+  color: black;
+}
+
+a[class="active"] {
+  color: black;
+  border-bottom: 3px solid antiquewhite !important;
+}
