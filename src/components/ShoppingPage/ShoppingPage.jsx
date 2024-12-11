@@ -30,7 +30,7 @@ const Shop = () => {
         id={item.id}
         itemName={item.title}
         itemImgSrc={item.image}
-        itemPrice={item.prive}
+        itemPrice={item.price}
       ></Item>
     );
   });
