@@ -11,16 +11,12 @@ describe("Item component", () => {
     render(<Item />);
     expect(screen.getByRole("img")).toBeTruthy;
   });
-  it("has a rating", () => {
+  it("has an add button", () => {
     render(<Item />);
-    expect(screen.getByText("4 stars")).toBeTruthy;
+    expect(screen.getByText("Add to cart")).toBeTruthy;
   });
-  it("has a rating count", () => {
+  it("has an input field", () => {
     render(<Item />);
-    expect(screen.getByText("(12)")).toBeTruthy;
-  });
-  it("has a quick add button", () => {
-    render(<Item />);
-    expect(screen.getByText("Test Item Name")).toBeTruthy;
+    expect(screen.getByRole("spinbutton")).toBeTruthy;
   });
 });
