@@ -19,4 +19,9 @@ describe("Item component", () => {
     render(<Item />);
     expect(screen.getByRole("spinbutton")).toBeTruthy;
   });
+  it("has a quantity of zero", () => {
+    render(<Item />);
+    //    expect(screen.getByDisplayValue("0")).toBeInTheDocument();
+    expect(screen.getByRole("spinbutton")).toHaveValue(1);
+  });
 });

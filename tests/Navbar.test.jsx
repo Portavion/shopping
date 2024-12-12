@@ -33,4 +33,12 @@ describe("Navbar component", () => {
     await user.click(shopLink);
     expect(screen.getAllByRole("link")[1].className).toMatch("active");
   });
+  it("renders checkout quantity", () => {
+    render(
+      <MemoryRouter>
+        <Navbar />
+      </MemoryRouter>,
+    );
+    expect(screen.getAllByRole("link")[0].textContent).toMatch("Home");
+  });
 });
