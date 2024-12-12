@@ -11,6 +11,9 @@ function App() {
     let newCart = cart;
     newCart = newCart.filter((item) => item.id != event.target.id);
     setCart(newCart);
+    handleQuantityChange();
+  };
+  const handleQuantityChange = () => {
     const totalQuantity = cart.reduce((sum, { quantity }) => sum + quantity, 0);
     setQuantity(totalQuantity);
   };
@@ -39,9 +42,11 @@ function App() {
         newCart[indexToUpdate].quantity +
         Number(event.target.parentNode.childNodes[3].value);
     }
-    const totalQuantity = cart.reduce((sum, { quantity }) => sum + quantity, 0);
-    setQuantity(totalQuantity);
+    handleQuantityChange();
   };
+  useEffect(() => {
+    handleQuantityChange();
+  }, [cart]);
 
   return (
     <>
