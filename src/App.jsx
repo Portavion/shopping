@@ -13,7 +13,18 @@ function App() {
     setCart(newCart);
     handleQuantityChange();
   };
-  const handleQuantityChange = () => {
+  const handleQuantityChange = (event) => {
+    if (event != undefined) {
+      console.log(event.target.id);
+      console.log(cart);
+      let newCart = cart;
+      const indexToUpdate = cart.findIndex(
+        (item) => item.id === event.target.id,
+      );
+      console.log(indexToUpdate);
+      newCart[indexToUpdate].quantity = Number(event.target.value);
+    }
+
     const totalQuantity = cart.reduce((sum, { quantity }) => sum + quantity, 0);
     setQuantity(totalQuantity);
   };
@@ -56,6 +67,7 @@ function App() {
           handleAddToCart,
           cart: [cart, setCart],
           handleDeleteFromCart,
+          handleQuantityChange,
         }}
       ></Outlet>
     </>

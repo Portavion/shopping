@@ -10,12 +10,19 @@ const ItemCart = ({
   deleteItem,
 }) => {
   const totalPrice = itemPrice * quantity;
-
+  const { handleQuantityChange } = useOutletContext();
   return (
     <div className={styles.itemCard}>
       <img src={itemImgSrc} alt={itemName} />
       <p>{itemName}</p>
-      <input type="number" min="0" name="quantity" defaultValue={quantity} />
+      <input
+        id={id}
+        type="number"
+        min="0"
+        name="quantity"
+        onChange={handleQuantityChange}
+        defaultValue={quantity}
+      />
 
       <p>{totalPrice}$</p>
 
