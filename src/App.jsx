@@ -7,6 +7,14 @@ function App() {
   const [quantity, setQuantity] = useState(0);
   const [cart, setCart] = useState([]);
 
+  const handleDeleteFromCart = (event) => {
+    let newCart = cart;
+    newCart = newCart.filter((item) => item.id != event.target.id);
+    setCart(newCart);
+    const totalQuantity = cart.reduce((sum, { quantity }) => sum + quantity, 0);
+    setQuantity(totalQuantity);
+  };
+
   const handleAddToCart = (event) => {
     const alreadyAdded =
       cart.find((item) => item.id === event.target.id) === undefined
@@ -27,7 +35,6 @@ function App() {
       const indexToUpdate = cart.findIndex(
         (item) => item.id === event.target.id,
       );
-      console.log(indexToUpdate);
       newCart[indexToUpdate].quantity =
         newCart[indexToUpdate].quantity +
         Number(event.target.parentNode.childNodes[3].value);
@@ -39,7 +46,13 @@ function App() {
   return (
     <>
       <Navbar quantity={quantity} />
-      <Outlet context={{ handleAddToCart, cart: [cart, setCart] }}></Outlet>
+      <Outlet
+        context={{
+          handleAddToCart,
+          cart: [cart, setCart],
+          handleDeleteFromCart,
+        }}
+      ></Outlet>
     </>
   );
 }

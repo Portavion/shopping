@@ -4,6 +4,7 @@ import { ItemCart } from "../ItemCart/ItemCart.jsx";
 
 const Checkout = () => {
   const { cart } = useOutletContext();
+  const { handleDeleteFromCart } = useOutletContext();
   if (cart[0].length === 0) {
     return (
       <>
@@ -16,7 +17,6 @@ const Checkout = () => {
       </>
     );
   }
-  console.log(cart[0]);
   const itemToList = cart[0].map((item) => {
     return (
       <ItemCart
@@ -25,6 +25,7 @@ const Checkout = () => {
         itemImgSrc={item.imgSrc}
         itemPrice={item.price}
         quantity={item.quantity}
+        deleteItem={handleDeleteFromCart}
       ></ItemCart>
     );
   });
