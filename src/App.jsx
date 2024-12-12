@@ -18,7 +18,7 @@ function App() {
         id: event.target.id,
         name: event.target.parentNode.childNodes[1].innerText,
         imgSrc: event.target.parentNode.childNodes[0].src,
-        price: event.target.parentNode.childNodes[2].innerText,
+        price: event.target.parentNode.childNodes[2].innerText.slice(0, -1),
         quantity: Number(event.target.parentNode.childNodes[3].value),
       });
       setCart(newCart);

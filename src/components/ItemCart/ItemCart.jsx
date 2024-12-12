@@ -9,6 +9,7 @@ const ItemCart = ({
   quantity = 1,
 }) => {
   const { handleAddToCart } = useOutletContext();
+  const totalPrice = itemPrice * quantity;
   return (
     <div className={styles.itemCard}>
       <img src={itemImgSrc} alt={itemName} />
@@ -21,7 +22,7 @@ const ItemCart = ({
         value={quantity}
       />
 
-      <p>{itemPrice}$</p>
+      <p>{totalPrice}$</p>
 
       <button id={id} onClick={handleAddToCart}>
         Delete
