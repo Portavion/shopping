@@ -29,10 +29,19 @@ const Checkout = () => {
       ></ItemCart>
     );
   });
+  let totalPrice = 0;
+  for (let item in cart[0]) {
+    totalPrice = totalPrice + cart[0][item].price * cart[0][item].quantity;
+  }
+
+  totalPrice = totalPrice.toFixed(2);
   return (
     <>
       <p>Checkout</p>
       {itemToList}
+      <h2>
+        Total:<span>{totalPrice}</span>
+      </h2>
     </>
   );
 };

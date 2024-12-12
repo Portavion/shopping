@@ -15,13 +15,10 @@ function App() {
   };
   const handleQuantityChange = (event) => {
     if (event != undefined) {
-      console.log(event.target.id);
-      console.log(cart);
       let newCart = cart;
       const indexToUpdate = cart.findIndex(
         (item) => item.id === event.target.id,
       );
-      console.log(indexToUpdate);
       newCart[indexToUpdate].quantity = Number(event.target.value);
     }
 
